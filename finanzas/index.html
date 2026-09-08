@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width,
+               initial-scale=1.0,
+               maximum-scale=1.0">
+
+<meta name="theme-color" content="#0b4565">
+
+<title>Alfonso Garza | Hudson Products de México</title>
+
+<style>
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont,
+                     "Segoe UI", Roboto, Arial, sans-serif;
+
+        background: #f3f5f7;
+        color: #222;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 520px;
+        margin: 0 auto;
+        background: white;
+        min-height: 100vh;
+        box-shadow: 0 0 25px rgba(0,0,0,.08);
+    }
+
+    /* CABECERA */
+
+    .hero {
+        position: relative;
+        background:
+            linear-gradient(
+                150deg,
+                #07364f 0%,
+                #0b5475 60%,
+                #12769b 100%
+            );
+
+        text-align: center;
+        padding: 28px 20px 36px;
+        overflow: hidden;
+    }
+
+    .hero::after {
+        content: "";
+        position: absolute;
+        width: 350px;
+        height: 350px;
+        background: rgba(255,255,255,.04);
+        border-radius: 50%;
+        right: -180px;
+        top: -140px;
+    }
+
+    .logo-container {
+        position: relative;
+        z-index: 2;
+        background: white;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        padding: 8px 14px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 12px rgba(0,0,0,.15);
+    }
+
+    .logo {
+        max-width: 145px;
+        height: auto;
+        display: block;
+    }
+
+    .photo-wrapper {
+        position: relative;
+        z-index: 2;
+
+        width: 190px;
+        height: 190px;
+
+        margin: 0 auto 18px;
+
+        border-radius: 50%;
+        overflow: hidden;
+
+        background:
+            linear-gradient(
+                145deg,
+                #f1f3f5,
+                #ffffff
+            );
+
+        border: 5px solid white;
+
+        box-shadow:
+            0 8px 24px rgba(0,0,0,.25);
+    }
+
+    .photo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+    }
+
+    .name {
+        position: relative;
+        z-index: 2;
+
+        font-size: 30px;
+        line-height: 1.15;
+        font-weight: 600;
+        color: white;
+        margin-top: 8px;
+    }
+
+    .position {
+        position: relative;
+        z-index: 2;
+
+        font-size: 18px;
+        font-weight: 300;
+        color: rgba(255,255,255,.85);
+        margin-top: 8px;
+    }
+
+    .company {
+        position: relative;
+        z-index: 2;
+
+        font-size: 14px;
+        color: rgba(255,255,255,.65);
+        margin-top: 5px;
+    }
+
+    /* ACCIONES */
+
+    .actions {
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+
+        border-bottom: 1px solid #e4e7ea;
+    }
+
+    .action {
+        text-decoration: none;
+        color: #0b5475;
+        text-align: center;
+        padding: 18px 6px;
+
+        border-right: 1px solid #e4e7ea;
+
+        transition: background .2s ease;
+        cursor: pointer;
+    }
+
+    .action:last-child {
+        border-right: 0;
+    }
+
+    .action:hover {
+        background: #f1f7fa;
+    }
+
+    .action-icon {
+        font-size: 26px;
+        margin-bottom: 6px;
+    }
+
+    .action-text {
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: .4px;
+    }
+
+    /* INFORMACIÓN */
+
+    .content {
+        padding: 28px 25px 35px;
+    }
+
+    .title {
+        font-size: 14px;
+        font-weight: 600;
+        color: #777;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 14px;
+    }
+
+    .info-row {
+        display: flex;
+        align-items: center;
+
+        padding: 18px 0;
+
+        border-bottom: 1px solid #eceff1;
+    }
+
+    .info-icon {
+        width: 48px;
+
+        font-size: 25px;
+
+        color: #0b5475;
+
+        flex-shrink: 0;
+    }
+
+    .info-data {
+        flex: 1;
+    }
+
+    .info-value {
+        font-size: 17px;
+        font-weight: 500;
+        color: #252525;
+
+        word-break: break-word;
+    }
+
+    .info-value a {
+        text-decoration: none;
+        color: #252525;
+    }
+
+    .info-label {
+        margin-top: 4px;
+        font-size: 13px;
+        color: #91979b;
+    }
+
+    /* GUARDAR CONTACTO */
+
+    .save-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 100%;
+
+        margin-top: 30px;
+        padding: 16px;
+
+        border: none;
+        border-radius: 8px;
+
+        background: #0b5475;
+        color: white;
+
+        font-size: 16px;
+        font-weight: 600;
+
+        cursor: pointer;
+
+        box-shadow: 0 5px 14px rgba(11,84,117,.25);
+    }
+
+    .save-button:hover {
+        background: #073f59;
+    }
+
+    /* FOOTER */
+
+    .footer {
+        text-align: center;
+
+        padding: 22px 20px 30px;
+
+        font-size: 12px;
+
+        color: #999;
+    }
+
+    .footer strong {
+        color: #666;
+    }
+
+    @media (max-width: 400px) {
+
+        .photo-wrapper {
+            width: 165px;
+            height: 165px;
+        }
+
+        .name {
+            font-size: 26px;
+        }
+
+        .content {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+    }
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="card">
+
+    <!-- CABECERA -->
+
+    <section class="hero">
+
+        <div class="logo-container">
+            <img
+                src="logo-hudson.jpeg"
+                class="logo"
+                alt="Hudson Products de México">
+        </div>
+
+
+        <div class="photo-wrapper">
+
+            <img
+                src="alfonso.png"
+                class="photo"
+                alt="Alfonso Garza">
+
+        </div>
+
+
+        <h1 class="name">
+            Alfonso Garza
+        </h1>
+
+        <div class="position">
+            Director Administración y Finanzas
+        </div>
+
+        <div class="company">
+            Hudson Products de México
+        </div>
+
+    </section>
+
+
+
+    <!-- BOTONES PRINCIPALES -->
+
+    <section class="actions">
+
+        <a
+            class="action"
+            href="tel:+528132455423">
+
+            <div class="action-icon">
+                ☎
+            </div>
+
+            <div class="action-text">
+                Llamar
+            </div>
+
+        </a>
+
+
+        <a
+            class="action"
+            href="mailto:alfonso.garza@hpm.com.mx">
+
+            <div class="action-icon">
+                ✉
+            </div>
+
+            <div class="action-text">
+                Email
+            </div>
+
+        </a>
+
+
+        <div
+            class="action"
+            onclick="compartirContacto()">
+
+            <div class="action-icon">
+                ↗
+            </div>
+
+            <div class="action-text">
+                Compartir
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- INFORMACIÓN -->
+
+    <main class="content">
+
+        <div class="title">
+            Información de contacto
+        </div>
+
+
+        <div class="info-row">
+
+            <div class="info-icon">
+                ☎
+            </div>
+
+            <div class="info-data">
+
+                <div class="info-value">
+
+                    <a href="tel:+528132455423">
+
+                        +52 81 3245 5423
+
+                    </a>
+
+                </div>
+
+                <div class="info-label">
+                    Celular
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="info-row">
+
+            <div class="info-icon">
+                ✉
+            </div>
+
+            <div class="info-data">
+
+                <div class="info-value">
+
+                    <a
+                        href="mailto:alfonso.garza@hpm.com.mx">
+
+                        alfonso.garza@hpm.com.mx
+
+                    </a>
+
+                </div>
+
+                <div class="info-label">
+                    Correo electrónico
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="info-row">
+
+            <div class="info-icon">
+                🌐
+            </div>
+
+            <div class="info-data">
+
+                <div class="info-value">
+
+                    <a
+                        href="https://hpm.com.mx"
+                        target="_blank">
+
+                        hpm.com.mx
+
+                    </a>
+
+                </div>
+
+                <div class="info-label">
+                    Hudson Products de México
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <button
+            class="save-button"
+            onclick="guardarContacto()">
+
+            ＋ &nbsp; Guardar contacto
+
+        </button>
+
+    </main>
+
+
+
+    <footer class="footer">
+
+        <strong>
+            Hudson Products de México
+        </strong>
+
+        <br>
+
+        Tarjeta digital corporativa
+
+    </footer>
+
+
+</div>
+
+
+
+<script>
+
+/* =========================================
+   GUARDAR VCARD
+========================================= */
+
+function guardarContacto() {
+
+    const vCard =
+`BEGIN:VCARD
+VERSION:3.0
+N:Garza;Alfonso;;;
+FN:Alfonso Garza
+ORG:Hudson Products de México
+TITLE:Director Administración y Finanzas
+TEL;TYPE=CELL:+528132455423
+EMAIL;TYPE=WORK:alfonso.garza@hpm.com.mx
+URL:https://contacto.hpm.com.mx/finanzas/
+END:VCARD`;
+
+
+    const blob = new Blob(
+        [vCard],
+        {
+            type: "text/vcard;charset=utf-8"
+        }
+    );
+
+
+    const url =
+        URL.createObjectURL(blob);
+
+
+    const link =
+        document.createElement("a");
+
+
+    link.href = url;
+
+    link.download =
+        "Alfonso-Garza.vcf";
+
+
+    document.body.appendChild(link);
+
+    link.click();
+
+    document.body.removeChild(link);
+
+    URL.revokeObjectURL(url);
+
+}
+
+
+
+/* =========================================
+   COMPARTIR
+========================================= */
+
+async function compartirContacto() {
+
+    const datos = {
+
+        title:
+            "Alfonso Garza - Hudson Products de México",
+
+        text:
+            "Contacto de Alfonso Garza, Director Administración y Finanzas de Hudson Products de México",
+
+        url:
+            "https://contacto.hpm.com.mx/finanzas/"
+
+    };
+
+
+    if (navigator.share) {
+
+        try {
+
+            await navigator.share(datos);
+
+        }
+
+        catch (error) {
+
+            console.log(
+                "Compartir cancelado"
+            );
+
+        }
+
+    }
+
+    else {
+
+        navigator.clipboard.writeText(
+            datos.url
+        );
+
+        alert(
+            "La dirección de la tarjeta fue copiada."
+        );
+
+    }
+
+}
+
+</script>
+
+
+</body>
+</html>
